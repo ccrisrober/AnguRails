@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
+
+  get 'employees/index'
+
   get "example" => "example#index"
+
+  namespace :api do
+    resources :employees, defaults: { format: :json }
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'employees#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
