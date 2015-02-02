@@ -1,0 +1,16 @@
+angular.module('app.employeeApp')
+.factory('EmployeeService', [
+  'Restangular', 'Employee', function(Restangular, Employee) {
+    var model;
+    model = 'employees';
+    Restangular.setBaseUrl("/api");
+    Restangular.extendModel(model, function(obj) {
+      return angular.extend(obj, Employee);
+    });
+    return {
+      list: function() {
+        return Restangular.all(model).getList();
+      }
+    };
+  }
+]);

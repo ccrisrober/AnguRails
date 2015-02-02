@@ -1,0 +1,9 @@
+angular.module('app.employeeApp')
+.controller("EmployeeListCtrl", [
+  '$scope', 'EmployeeService', function($scope, EmployeeService) {
+    return EmployeeService.list().then(function(employees) {
+      $scope.employees = employees;
+      return console.dir(employees);
+    });
+  }
+]);

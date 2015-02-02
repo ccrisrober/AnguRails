@@ -1,4 +1,4 @@
 angular.module('app.employeeApp', ['restangular'])
 .run(function() {
-  console.log('employeeApp running');
+  return console.log('employeeApp running');
 });
